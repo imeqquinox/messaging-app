@@ -23,10 +23,31 @@ dbConnection.connect(function(err) {
     console.log("Connected as id " + dbConnection.threadId);
 });
 
-// app.post("/signin", (req, res) => {
-//     const username = req.body.username;
-//     const password = req.body.password; 
-// });
+app.post("/signin", (req, res) => {
+    console.log(req.body);
+    const username = req.body.username;
+    const password = req.body.password; 
+
+    if (username && password) 
+    {
+        dbConnection.query(
+            "SELECT * FROM users WHERE userName = ? AND userPass = ?",
+            [username, password],
+            (err, result) => {
+                if (result.length > 0)
+                {
+                    res.send({ "result": true });
+                    console.log("Username and password are correct");
+                }
+                else
+                {
+                    res.send({ "result": false});
+                    console.log("Incorrect username and password");
+                }
+            }
+        )
+    }
+});
 
 app.post("/register", (req, res) => {
     console.log(req.body);
