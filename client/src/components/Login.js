@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
+import { Link } from 'react-router-dom';
 
-function Login({ setNewUser }) {
+function Login() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -14,8 +15,6 @@ function Login({ setNewUser }) {
             console.log(response);
         });
     };
-
-    
 
     return (
         <div>
@@ -30,7 +29,10 @@ function Login({ setNewUser }) {
                 <br /> 
                 <input type="submit" value="Login" onClick={signin}/>
             </form>
-            <button onClick={() => setNewUser(false)}>Register</button>
+
+            <Link to="/register">
+                <label>Register</label>
+            </Link>
         </div>
     );
 }

@@ -39,6 +39,7 @@ app.post("/register", (req, res) => {
         (err, result) => {
             if (err) {
                 console.log(err);
+                res.send(err.code);
             }
             else 
             {

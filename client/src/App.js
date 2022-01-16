@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Register from "./components/Register";
 
 function App() {
-
-  const [newUser, setNewUser] = useState(true);
-
   return (
-    <div className="App">
-      {newUser ? <Login setNewUser={setNewUser}/> : <Register />}
-      {/* <Dashboard /> */}
-    </div>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login /> } />
+          <Route path="register" element={<Register />} />
+          <Route path="home" element={<Dashboard />} />
+        </Routes>
+      </div>
   );
 }
 
