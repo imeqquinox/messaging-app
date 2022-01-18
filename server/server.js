@@ -23,6 +23,12 @@ dbConnection.connect(function(err) {
     console.log("Connected as id " + dbConnection.threadId);
 });
 
+// app.use("/signin", (req, res) => {
+//     res.send({
+//         token: "test123"
+//     });
+// });
+
 app.post("/signin", (req, res) => {
     console.log(req.body);
     const username = req.body.username;
@@ -36,12 +42,12 @@ app.post("/signin", (req, res) => {
             (err, result) => {
                 if (result.length > 0)
                 {
-                    res.send({ "result": true });
+                    res.send({ token: "test123" });
                     console.log("Username and password are correct");
                 }
                 else
                 {
-                    res.send({ "result": false});
+                    res.send({ "result": false });
                     console.log("Incorrect username and password");
                 }
             }
