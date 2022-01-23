@@ -1,0 +1,27 @@
+.chatcontainer {
+	display: flex;
+	/* flex-direction: column;
+	flex-wrap: wrap; */
+	margin: 1px;
+	height: 75px;
+	border: 2px solid black;
+}
+
+.chatcontainer__avatar {
+	width: 75px;
+}
+
+.chatcontainer__avatar img {
+	max-height: 75px;
+}
+
+.chatcontainer__textcontainer {
+	margin-left: 5px;
+}
+
+.chatcontainer__title {
+	margin-bottom: 5px;
+}
+
+.charcontainer__preview {
+}

@@ -1,15 +1,21 @@
 import React from 'react'
 import Sidebar from './Sidebar'
+import Chatboard from './Chatboard'
+import Header from './Header'
+import "./css/Dashboard.css"
 
 function Dashboard() {
     return (
-        <div>
-            {/* Sidebar */}
-            {/* <Sidebar /> */}
-            {/* Open converation / Create new message-group */}
-            <h1>
-                Welcome to messaging
-            </h1>
+        <div className='dashboard'>
+            <Header />
+            <div className='dashboard__main'>
+                <div className='dashboard__sidebar'>
+                    <Sidebar />
+                </div>
+                <div className='dashboard__chatboard'>
+                    <Chatboard />
+                </div>
+            </div>
         </div>
     )
 }
