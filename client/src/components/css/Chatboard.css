@@ -1,3 +1,30 @@
 .chatboard {
-	background-color: brown;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #90e0ef);
+	height: 75%;
+	border: 1px solid black;
+	position: relative;
+}
+
+.chatboard__header {
+	background-color: #90e0ef;
+	height: 5%;
+}
+
+.chatboard__title {
+	margin: auto;
+	padding: 10px;
+}
+
+.chatboard__input {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.chatboard__chatbar {
+	width: 95%;
+}
+
+.chatboard__enter {
+	width: 4%;
 }

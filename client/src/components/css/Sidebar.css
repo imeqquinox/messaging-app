@@ -12,12 +12,12 @@
 	display: flex;
 }
 
-.sidebar__messages {
+.sidebar__messagestab {
 	width: 50%;
 	padding: 5px;
 }
 
-.sidebar__friends {
+.sidebar__friendstab {
 	width: 50%;
 	padding: 5px;
 }

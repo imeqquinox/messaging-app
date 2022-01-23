@@ -22,9 +22,9 @@ async function loginUser(credentials, username, password) {
         .catch(err => console.log(err))
 }
 
-function Login({ setToken }) {
+function Login({ setToken, username, setUsername }) {
 
-    const [username, setUsername] = useState();
+    // const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
     const handleSubmit = async e => {

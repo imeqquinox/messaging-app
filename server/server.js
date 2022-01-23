@@ -4,8 +4,22 @@ const cors = require("cors");
 
 const app = express(); 
 app.use(cors());
-app.use(express.json());
-app.listen(3001); 
+app.use(express.json()); 
+
+const server = require("http").createServer(app);
+const io = require("socket.io")(server, {
+    cors: {
+        origin: ["http://localhost:3000"],
+    }
+});
+
+io.on("connection", socket => {
+    console.log(socket.id);
+    socket.on("send-message", (string) => {
+        console.log(string);
+    })
+});
+server.listen(3001);
 
 var dbConnection = mysql.createConnection({
     host: "localhost",
