@@ -13,14 +13,23 @@ const io = require("socket.io")(server, {
     }
 });
 
+// Socket.io
 io.on("connection", socket => {
     console.log(socket.id);
-    socket.on("send-message", (string) => {
-        console.log(string);
+    socket.on("send-message", (message) => {
+        socket.broadcast.emit("receive-message", message);
+        // if (room === "")
+        // {
+            
+        //     console.log(message);
+        // } else {
+        //     socket.to(room).emit("receive-message", message);
+        // }
     })
 });
 server.listen(3001);
 
+// mySQL details
 var dbConnection = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -28,6 +37,8 @@ var dbConnection = mysql.createConnection({
     database: "messaging_user",
 });
 
+
+// mySQL connection
 dbConnection.connect(function(err) {
     if (err) {
         console.error("Error connecting: " + err.stack);
