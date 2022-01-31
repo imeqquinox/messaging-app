@@ -15,16 +15,16 @@ async function loginUser(credentials, username, password) {
             password: password
         },
         body: JSON.stringify(credentials)
-    })
+        })
         .then(response => {
             return response.data;
         })
         .catch(err => console.log(err))
 }
 
-function Login({ setToken, username, setUsername }) {
+function Login({ setToken, setUsernameID }) {
 
-    // const [username, setUsername] = useState();
+    const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
     const handleSubmit = async e => {
@@ -35,6 +35,7 @@ function Login({ setToken, username, setUsername }) {
             password
         );
         setToken(token);
+        setUsernameID(username);
     }
 
     return (
@@ -62,7 +63,8 @@ function Login({ setToken, username, setUsername }) {
 }
 
 Login.propTypes = {
-    setToken: PropTypes.func.isRequired
+    setToken: PropTypes.func.isRequired,
+    setUsernameID: PropTypes.func.isRequired
 };
 
 export default Login

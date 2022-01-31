@@ -16,15 +16,8 @@ const io = require("socket.io")(server, {
 // Socket.io
 io.on("connection", socket => {
     console.log(socket.id);
-    socket.on("send-message", (message) => {
-        socket.broadcast.emit("receive-message", message);
-        // if (room === "")
-        // {
-            
-        //     console.log(message);
-        // } else {
-        //     socket.to(room).emit("receive-message", message);
-        // }
+    socket.on("send-message", (message, id) => {
+        io.emit("receive-message", message, id);
     })
 });
 server.listen(3001);
@@ -55,7 +48,6 @@ dbConnection.connect(function(err) {
 // });
 
 app.post("/signin", (req, res) => {
-    console.log(req.body);
     const username = req.body.username;
     const password = req.body.password; 
 
@@ -67,7 +59,9 @@ app.post("/signin", (req, res) => {
             (err, result) => {
                 if (result.length > 0)
                 {
-                    res.send({ token: "test123" });
+                    res.send({ 
+                        token: "test123",
+                    });
                     console.log("Username and password are correct");
                 }
                 else

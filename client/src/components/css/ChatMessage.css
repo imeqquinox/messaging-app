@@ -1,0 +1,26 @@
+.message {
+}
+
+.received {
+	background-color: blueviolet;
+	color: white;
+	margin: 10px;
+	width: fit-content;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid black;
+	border-radius: 25px;
+}
+
+.sent {
+	background-color: red;
+	color: black;
+	margin: 10px;
+	width: fit-content;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid black;
+	border-radius: 25px;
+}

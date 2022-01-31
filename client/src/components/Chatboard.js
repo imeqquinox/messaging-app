@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
-import { io } from 'socket.io-client';
 
 import "./css/Chatboard.css"
 import Chatcontent from './Chatcontent';
 
-function Chatboard({ socket }) {
-
+function Chatboard({ socket, username }) {
     const [message, setMessage] = useState("");
 
-    socket.on("receive-message", message => {
-        console.log(message);
-    })
-
-    const sendMessage = (message) => {
-        socket.emit("send-message", message)
+    const sendMessage = (message, id) => {
+        socket.emit("send-message", message, id);
         setMessage("");
     }
 
@@ -26,12 +20,12 @@ function Chatboard({ socket }) {
             </div>
 
             <div className='chatboard__container'>
-                <Chatcontent socket={socket}/>
+                <Chatcontent socket={socket} username={username}/>
             </div>
 
             <div className='chatboard__input'>
                 <input className='chatboard__chatbar' type="text" placeholder='Aa' value={message} onChange={(e) => setMessage(e.target.value)} />
-                <button className='chatboard__enter btn' onClick={() => sendMessage(message)}>Send</button>
+                <button className='chatboard__enter btn' onClick={() => sendMessage(message, username)}>Send</button>
             </div>
         </div>
     );
