@@ -6,9 +6,20 @@ import Chatcontent from './Chatcontent';
 function Chatboard({ socket, username }) {
     const [message, setMessage] = useState("");
 
+    const handleSumbit = (e) => {
+        e.preventDefault();
+        sendMessage(message, username);
+    }
+
     const sendMessage = (message, id) => {
-        socket.emit("send-message", message, id);
-        setMessage("");
+        if (message === "") {
+            return; 
+        }
+        else
+        {
+            socket.emit("send-message", message, id);
+            setMessage("");
+        }
     }
 
     return ( 
@@ -23,10 +34,10 @@ function Chatboard({ socket, username }) {
                 <Chatcontent socket={socket} username={username}/>
             </div>
 
-            <div className='chatboard__input'>
+            <form className='chatboard__input' onSubmit={handleSumbit}>
                 <input className='chatboard__chatbar' type="text" placeholder='Aa' value={message} onChange={(e) => setMessage(e.target.value)} />
-                <button className='chatboard__enter btn' onClick={() => sendMessage(message, username)}>Send</button>
-            </div>
+                <button className='chatboard__enter btn' type="submit">Send</button>
+            </form>
         </div>
     );
 }

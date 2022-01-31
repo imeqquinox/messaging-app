@@ -41,12 +41,6 @@ dbConnection.connect(function(err) {
     console.log("Connected as id " + dbConnection.threadId);
 });
 
-// app.use("/signin", (req, res) => {
-//     res.send({
-//         token: "test123"
-//     });
-// });
-
 app.post("/signin", (req, res) => {
     const username = req.body.username;
     const password = req.body.password; 
@@ -92,4 +86,31 @@ app.post("/register", (req, res) => {
                 res.send("Values Inserted");
             }
         })
+});
+
+app.post("/query", (req, res) => {
+    // gain username from add contact card 
+    // query database for username 
+        // if it exists allow the user to add them as a contact
+        // otherwise response with a error message
+    const username = req.body.username;
+
+    dbConnection.query(
+        "SELECT userName FROM users WHERE userName = ?",
+        [username],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                res.send(err.code);
+            }
+            else if (result.length < 1)
+            {
+                res.send("That user does not exist")
+            }
+            else 
+            {
+                res.send("User has been added as a contact");
+            }
+        }
+    )
 });

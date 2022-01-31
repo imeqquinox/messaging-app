@@ -3,7 +3,11 @@ import React from 'react'
 import Chatcontainer from './Chatcontainer'
 import "./css/Sidebar.css"
 
-function Sidebar() {
+function Sidebar({ setTrigger, contacts }) {
+    const newContact = () => {
+        setTrigger(true);
+    }
+    
     return (
         <div className='sidebar'>
             <div className='sidebar__title'>
@@ -15,24 +19,11 @@ function Sidebar() {
             </div>
 
             <div className="sidebar__container">
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
-                    <Chatcontainer />
+                    {contacts.map(contact => <Chatcontainer contactName={contact}/>)}
             </div>
 
             <div className='sidebar__add'>
-                <button className='sidebar__addbtn' type="text">Add new contact</button>
+                <button className='sidebar__addbtn' type="text" onClick={newContact}>Add new contact</button>
             </div>
         </div>
     )

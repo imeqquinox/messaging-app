@@ -17,8 +17,7 @@ function App() {
 
   // TODO: 
   // Fix chat css formatting (float right)
-  // Remove direct messages tab just have contacts
-  // Stop sending empty messages
+  // Stop user from adding themselfs
 
   if (!token) {
     return <Login setToken={setToken} setUsernameID={setUsernameID} />
