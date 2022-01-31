@@ -8,12 +8,9 @@ function Chatcontainer() {
             <div className='chatcontainer__avatar'>
                 <img src="https://i.pinimg.com/originals/7c/c7/a6/7cc7a630624d20f7797cb4c8e93c09c1.png" alt="Avatar"/>
             </div>
-            <div className='chatcontainer__textcontainer'>
+            <div className='chatcontainer__title'>
                 <div className='chatcontainer__title'>
                     Chat title
-                </div>
-                <div className='chatcontainer__preview'>
-                    This is a preview of the chat.
                 </div>
             </div>
         </div>

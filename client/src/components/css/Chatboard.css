@@ -1,8 +1,21 @@
 .chatboard {
 	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #90e0ef);
-	height: 75%;
-	border: 1px solid black;
-	position: relative;
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+/* Creating fill remaing space */
+.chatboard .chatboard__header {
+	flex: 0 1 auto;
+}
+
+.chatboard .chatboard__container {
+	flex: 1 1 auto;
+}
+
+.chatboard .chatboard__input {
+	flex: 0 1 auto;
 }
 
 .chatboard__header {
@@ -16,15 +29,18 @@
 }
 
 .chatboard__input {
-	position: absolute;
-	bottom: 0;
 	width: 100%;
+	height: 5%;
 }
 
 .chatboard__chatbar {
+	border: 0;
 	width: 95%;
+	height: 100%;
 }
 
 .chatboard__enter {
-	width: 4%;
+	border: 0;
+	width: 5%;
+	height: 100%;
 }

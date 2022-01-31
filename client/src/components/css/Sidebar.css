@@ -2,40 +2,44 @@
 	background-color: gray;
 	height: 100%;
 	width: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+/* Creating fill remaining space */
+.sidebar .sidebar__title {
+	flex: 0 1 auto;
+}
+
+.sidebar .sidebar__container {
+	flex: 1 1 auto;
+}
+
+.sidebar .sidebar__add {
+	flex: 0 1 40px;
 }
 
 .sidebar__title {
 	padding: 10px;
+	border: 2px solid black;
 }
 
-.sidebar__tabs {
-	display: flex;
-}
-
-.sidebar__messagestab {
-	width: 50%;
-	padding: 5px;
-}
-
-.sidebar__friendstab {
-	width: 50%;
-	padding: 5px;
-}
-
-.sidebar__search {
+.sidebar__friends {
 	width: 100%;
-}
-
-.sidebar__searchbar {
-	border: 0;
-	width: 100%;
+	font-size: 27px;
 }
 
 .sidebar__container {
-	height: 100%;
 	overflow: scroll;
+	overflow-x: hidden;
 }
 
+.sidebar__addbtn {
+	height: 100%;
+	width: 100%;
+}
+
+/* Scroll bar */
 .sidebar__container::-webkit-scrollbar {
 	width: 10px;
 }

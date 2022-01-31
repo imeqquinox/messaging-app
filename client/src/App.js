@@ -11,9 +11,14 @@ function App() {
   const { token, setToken } = useToken();
   const { usernameID, setUsernameID } = useUsername(); 
 
+  // Scope: 
+  // Basic contact adding
+  // and messaging to the individual
+
   // TODO: 
   // Fix chat css formatting (float right)
-  // Fix chat username error where it only displays the user's name and not another ID
+  // Remove direct messages tab just have contacts
+  // Stop sending empty messages
 
   if (!token) {
     return <Login setToken={setToken} setUsernameID={setUsernameID} />
